@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a, b, c;
+	cin >> a >> b >> c;
+	int e = a, f = b;
+	while (b != 0)
+	{
+		int temp = b;
+		b = a % b;
+		a = temp;
+	}
+	int d = e * f / a;
+	while (c != 0)
+	{
+		int temp = c;
+		c = d % c;
+		d = temp;
+	}
+	cout << d;
+	return 0;
+}
