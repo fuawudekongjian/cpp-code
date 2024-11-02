@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n;
+	cin >> n;
+	int a[1000] = { 0 };
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	int num = a[0], leng = 1;
+	for (int i = 0; i < n; i++)
+	{
+		int temp = 1;
+		for (int k = i + 1; k < n; k++)
+		{
+			if (a[i] == a[k])temp++;
+			else break;
+		}
+		if (temp > leng)
+		{
+			leng = temp; num = a[i];
+		}
+	}
+	cout << leng << " " << num;
+	return 0;
+}
