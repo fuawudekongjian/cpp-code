@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n;
+	cin >> n;
+	int m1[100][100], m2[100][100];
+	for (int i = 0; i < n; i++)
+		for (int k = 0; k < n; k++)
+			cin >> m1[i][k];
+	for (int i = 0; i < n; i++)
+		for (int k = 0; k < n; k++)
+			cin >> m2[i][k];
+	int ans[100][100] = { 0 };
+	for(int i=0;i<n;i++)
+		for (int k = 0; k < n; k++)
+		{
+			for (int j = 0; j < n; j++)
+				ans[i][k] += m1[i][j] * m2[j][k];
+		}
+	for (int i = 0; i < n; i++) {
+		for (int k = 0; k < n; k++)
+			cout << ans[i][k] << " ";
+		cout << endl;
+	}
+	return 0;
+}
