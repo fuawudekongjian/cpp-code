@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int t;
+	cin >> t;
+	int a[3][3];
+	for (int i = 0; i < t; i++)
+	{
+		int ans1= 1,ans2=1,ans3=1;
+		for (int k = 0; k < 3; k++)
+			for (int j = 0; j < 3; j++)
+				cin >> a[k][j];
+		int r = 0, n = 0, x = 0;
+		r = a[0][1] + a[0][2] + a[0][0];
+		n = a[0][0] + a[1][0] + a[2][0];
+		x = a[0][0] + a[1][1] + a[2][2];
+		for (int k = 0; k < 3; k++) 
+		{
+			int s = 0;
+			for (int j = 0; j < 3; j++)
+			{
+				s += a[k][j];
+			}
+			if (s != r)ans1 = 0;
+		}
+		for (int k = 0; k < 3; k++)
+		{
+			int s = 0;
+			for (int j = 0; j < 3; j++)
+			{
+				s += a[j][k];
+			}
+			if (s != n)ans2 = 0;
+		}
+		if ((a[0][2] + a[1][1] + a[2][0]) != x)ans3 = 0;
+		if (ans1&&ans2&&ans3)cout << "Cheers!" << endl;
+		else cout << "OMyGa!" << endl;
+	}
+	return 0;
+}
