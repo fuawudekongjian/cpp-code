@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n;
+	cin >> n;
+	int a[200000] = { 0 };
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	bool b[200000] = { false };
+	for (int i = 0; i < n; i++)
+	{
+		if (b[i])continue;
+		else
+		{
+			cout << i + 1<<" ";
+			b[i] = true;
+			int temp = a[i];
+			for (int k = i + 1; k < n; k++)
+			{
+				if (b[k])continue;
+				else
+				{
+					if (a[k] != temp)
+					{
+						b[k] = true;
+						temp = a[k];
+						cout << k + 1 << " ";
+					}
+				}
+			}
+		}
+		cout << endl;
+	}
+	return 0;
+}
