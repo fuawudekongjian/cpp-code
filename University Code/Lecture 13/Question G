@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	char ch;
+	int s1 = 0, s2 = 0;
+	while (cin >> ch && ch != '/n')
+	{
+		if (ch >= '0' && ch <= '9')s1++;
+		if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z')s2++;
+	}
+	cout << s1 << " " << s2;
+	return 0;
+}
