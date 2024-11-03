@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cstring>
+#include <cctype>
+using namespace std;
+int main()
+{
+	char a[1000];
+	cin.getline(a, 1000);
+	int n = strlen(a);
+	for (int i = 0; i < n; i++)
+	{
+		if (isupper(a[i]))
+			a[i] = tolower(a[i]);
+		else if (islower(a[i]))
+			a[i] = toupper(a[i]);
+	}
+	cout << a;
+	return 0;
+}
