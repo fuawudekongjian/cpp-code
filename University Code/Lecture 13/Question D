@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	int a, b;
+	char c;
+	cin >> a>>c >> b;
+	int MAX = a, TIME = 0;
+	for (int i = a; i <= b; i++)
+	{
+		int temp = i;
+		int time = 1;
+		for (; temp != 1;)
+		{
+			if (temp % 2 == 0)temp /= 2;
+			else if (temp % 2 == 1)temp = temp * 3 + 1;
+			time++;
+		}
+		if (time > TIME)
+		{
+			TIME = time;
+			MAX = i;
+		}
+	}
+	cout << MAX << endl;
+	cout << TIME << endl;
+	cout << MAX << "->";
+	for (; MAX != 1;)
+	{
+		if (MAX % 2 == 0)MAX /= 2;
+		else if (MAX % 2 == 1)MAX = MAX * 3 + 1;
+		cout << MAX << "->";
+	}
+	return 0;
+}
