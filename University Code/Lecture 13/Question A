@@ -1,0 +1,18 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	int a, b, c, d;
+	cin >> a >> b >> c >> d;
+	int e = abs(a - b);
+	int f = abs(c - d);
+	while (f != 0)
+	{
+		int i = f;
+		f = e % f;
+		e = i;
+	}
+	cout << e;
+	return 0;
+}
