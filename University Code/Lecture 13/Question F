@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	double x;
+	cin >> x;
+	double sum = 1;
+	double temp = x;
+	double i = 2;
+	while (abs(temp) >= 1e-7)
+	{
+		sum += temp;
+		temp = -temp * x / i;
+		i++;
+	}
+	cout << "x=" <<fixed<<setprecision(6)<< x << ", sum=" <<fixed<<setprecision(6)<< sum;
+	return 0;
+}
