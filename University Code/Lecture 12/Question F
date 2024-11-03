@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+	char a[1000];
+	cin >> a;
+	int len = strlen(a), flag = 0;
+	for (int i = 0; i < len; i++)
+	{
+		if(a[i]>='0' and a[i]<='9')
+		{
+			if (a[i] > '0')flag = 1;
+			if (flag)
+				cout << a[i];
+		}
+	}
+
+	return 0;
+}
