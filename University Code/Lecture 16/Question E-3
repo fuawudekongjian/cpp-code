@@ -20,7 +20,8 @@ int main()
 			if (arr[i][k] > rmax)rmax = arr[i][k];
 		}
 		for (int k = 0; k < column; k++)
-			if (arr[i][k] == rmax)arr_[i][k] = 1;
+			if (arr[i][k] == rmax)
+				arr_[i][k] = 1;
 		for (int k = 0; k < column; k++)
 		{
 			if (arr_[i][k] == 1)
@@ -33,7 +34,10 @@ int main()
 						temp = 1;
 					}
 				}
-				if (!temp) { flag = true; break; }
+				if (!temp) 
+				{
+					flag = true; break; 
+				}
 			}
 		}
 	}
