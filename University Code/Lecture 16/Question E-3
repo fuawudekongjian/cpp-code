@@ -17,7 +17,8 @@ int main()
 		rmax = 0;
 		for (int k = 0; k < column; k++)
 		{
-			if (arr[i][k] > rmax)rmax = arr[i][k];
+			if (arr[i][k] > rmax)
+				rmax = arr[i][k];
 		}
 		for (int k = 0; k < column; k++)
 			if (arr[i][k] == rmax)
