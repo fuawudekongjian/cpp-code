@@ -36,7 +36,8 @@ int main()
 				}
 				if (!temp) 
 				{
-					flag = true; break; 
+					flag = true; 
+					break; 
 				}
 			}
 		}
