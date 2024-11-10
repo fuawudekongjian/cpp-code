@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin >> n;
+	vector<int>arr (n);
+	for (int i = 0; i < n; i++)
+	{
+		cin >> arr[i];
+	}
+	for (int i = 0; i < n - 1; i++)
+	{
+		int min = arr[i];
+		int temp = i;
+		for (int k = 1; k < n; k++)
+		{
+			if (arr[temp] > arr[k])
+				temp = k;
+		}
+		if (temp != i)swap(arr[i], arr[temp]);
+	}
+	if (n % 2 == 1)
+	{
+		int i = n / 2 ;
+		cout << arr[i];
+	}
+	else
+	{
+		int i = n / 2;
+		cout << (arr[i - 1] + arr[i]) / 2;
+	}
+	return 0;
+}
