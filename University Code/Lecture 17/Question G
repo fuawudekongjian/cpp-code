@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+// 定义数组的最大大小
+const int MAXN = 100; 
+
+int main() {/*
+    // n用于存储输入的数组元素个数，m用于存储另一个输入值
+    int n, m; 
+    cin >> n >> m;
+
+    // 定义数组x，用于存储输入的整数
+    int x[MAXN]; 
+    // 循环读取n个整数到数组x中
+    for (int i = 0; i < n; i++) { 
+        cin >> x[i];
+    }
+
+    // lbound是查找范围的左边界，初始化为0
+    int lbound = 0; 
+    // rbound是查找范围的右边界，初始化为m
+    int rbound = m; 
+    // 二分查找循环，只要左边界小于右边界就继续
+    while (lbound < rbound) { 
+        // 计算中间值mid
+        int mid = (lbound + rbound) / 2; 
+        // count用于统计数组x中大于mid的元素个数，每次循环都重新初始化
+        int count = 0; 
+        // 遍历数组x
+        for (int i = 0; i < n; i++) { 
+            // 应该是if (x[i]>mid)，即统计大于mid的元素个数
+            if (x[i] > mid) { 
+                count++;
+            }
+        }
+        // 如果大于mid的元素个数大于n的一半
+        if (count > n / 2) { 
+            // 调整左边界为mid + 1，缩小查找范围到右半部分
+            lbound = mid + 1; 
+        }
+        else {
+            // 否则调整右边界为mid，缩小查找范围到左半部分
+            rbound = mid; 
+        }
+    }
+    // 输出最终的rbound值
+    cout << rbound << endl; */
+    cout << "A" << endl;
+    cout << "A" << endl;
+    cout << "C" << endl;
+    cout << "D" << endl;
+    cout << "C" << endl;
+}
