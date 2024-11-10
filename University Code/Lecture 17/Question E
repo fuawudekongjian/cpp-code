@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+int main() {
+	int i, n;
+	cin >> n;
+	for (i = 1; i <= n; i++)
+	{
+		int m=1;
+		for (int j = 2; j<i; j++)
+			if (i % j == 0) m += j;
+		if (m == i) continue;
+		int fm = 1;
+		for (int j = 2; j < m; j++)
+			if (m % j == 0) fm += j;
+		if (fm==i)
+		{
+			cout << i << " " << m << endl;
+			break;
+		}
+	}
+	if (i == n + 1)
+		cout << "NULL\n";
+	return 0;
+}
