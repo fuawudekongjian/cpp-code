@@ -1,0 +1,18 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	double ans = 0;
+	double n;
+	cin >> n;
+	for (int i = 1; i <= n; i++)
+	{
+		double temp = pow(-1, i - 1) / (i * 2 - 1);
+		ans += temp;
+	}
+	ans *= 4;
+	cout << fixed << setprecision(10) << ans;
+	return 0;
+}
