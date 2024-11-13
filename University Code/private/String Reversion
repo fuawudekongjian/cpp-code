@@ -1,0 +1,86 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+string addchange(int k, string temp)
+{
+	int n = temp.length();
+	for (int i = 0; i < n; i++)
+	{
+		if (temp[i] + k > 'z')
+			temp[i] = 'a';
+		else
+			temp[i] += k;
+	}
+	return temp;
+}
+string subchange(int k, string temp)
+{
+	int n = temp.length();
+	for (int i = 0; i < n; i++)
+	{
+		if (temp[i] - k < 'a')
+			temp[i] = 'z';
+		else
+			temp[i] -= k;
+	}
+	return temp;
+}
+bool compare(int k, string temp, string a, string b)
+{
+	string add = addchange(k, temp);
+	string sub = subchange(k, temp);
+	if (a == add && b == sub || a == sub && b == add)
+		return true;
+	else
+		return false;
+}
+bool circulate(bool flag, string a1, string a2, string a3)
+{
+	string temp=a1;
+	reverse(temp.begin(), temp.end());
+	for (int i = 0; i <= 6; i++)
+	{
+		flag = compare(i, temp, a2, a3);
+		if (flag)
+		{
+			return true;
+			break;
+		}
+		if (i == 6)
+		{
+			return false;
+		}
+	}
+}
+int main()
+{
+	string a1, a2, a3;
+	int n;
+	cin >> n;
+	cin >> a1 >> a2 >> a3;
+	bool flag1 = false;
+	flag1=circulate(flag1, a1, a2, a3);
+	bool flag2 = false;
+	if (flag1)
+	{
+		reverse(a1.begin(), a1.end());
+		cout << a1;
+	}
+	else
+	{
+		flag2=circulate(flag2, a2, a1, a3);
+		if (flag2)
+		{
+			reverse(a2.begin(), a2.end());
+			cout << a2;
+		}
+		else
+		{
+			reverse(a3.begin(), a3.end());
+			cout << a3;
+		}
+	}
+	return 0;
+}
