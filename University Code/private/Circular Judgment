@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n, temp = 0, ans = 0;
+	cin >> n;
+	bool flag[100] = { false };
+	int i = 0;
+	for (;;)
+	{
+		i = 0;
+		while (flag[i])i++;
+		if (!flag[i])
+		{
+			bool a = false;
+			temp++;
+			if (temp == 3)
+			{
+				temp = 0;
+				flag[i] = true;
+			}
+			for (int k = i + 1; k < n; k++)
+			{
+				if (!flag[k])
+				{
+					temp++;
+					a = true;
+					if (temp == 3)
+					{
+						temp = 0;
+						flag[k] = true;
+					}
+				}
+			}
+			if (!a)
+			{
+				ans = i;
+				break;
+			}
+		}
+	}
+	cout << ans;
+	return 0;
+}
