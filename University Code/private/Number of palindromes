@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+// 将数字转换为指定进制的字符串
+std::string convertBase(long long num, int base) {
+    // 如果数字为0，直接返回"0"
+    if (num == 0) return "0";
+    std::string result;
+    // 通过循环将数字转换为指定进制的字符串
+    while (num > 0) {
+        // 获取当前位的数字
+        int digit = num % base;
+        // 如果当前位数字小于10，将对应的数字字符添加到结果字符串中
+        if (digit < 10) {
+            result.push_back(digit + '0');
+        }
+        else {
+            // 如果当前位数字大于等于10，将对应的字母字符（A - F）添加到结果字符串中
+            result.push_back(digit - 10 + 'A');
+        }
+        // 更新num，准备获取下一位数字
+        num /= base;
+    }
+    // 反转结果字符串，因为之前是从低位到高位计算的
+    std::reverse(result.begin(), result.end());
+    return result;
+}
+
+// 判断字符串是否为回文
+bool isPalindrome(const std::string& s) {
+    // 初始化左右指针
+    int left = 0;
+    int right = s.length() - 1;
+    // 通过双指针法判断字符串是否为回文
+    while (left < right) {
+        // 如果左右指针指向的字符不相等，则不是回文
+        if (s[left] != s[right]) return false;
+        // 移动指针
+        left++;
+        right--;
+    }
+    return true;
+}
+
+int main() {
+    int N;
+    long long M;
+    // 读取进制N
+    std::cin >> N;
+    // 读取数字M
+    std::cin >> M;
+
+    // 将输入的数字M转换为N进制的字符串
+    std::string original = convertBase(M, N);
+    int steps = 0;
+    // 最多进行30步操作
+    while (steps <= 30) {
+        // 复制original字符串
+        std::string reversed = original;
+        // 反转字符串reversed
+        std::reverse(reversed.begin(), reversed.end());
+        // 将original和reversed转换为十进制数字并相加
+        long long sum = stoll(original, nullptr, N) + stoll(reversed, nullptr, N);
+        // 将相加结果转换为N进制字符串
+        original = convertBase(sum, N);
+        // 步数加1
+        steps++;
+        // 判断是否为回文
+        if (isPalindrome(original)) {
+            // 如果是回文，输出步数
+            std::cout << "STEP=" << steps << std::endl;
+            return 0;
+        }
+    }
+    // 如果30步内没有得到回文数，输出Impossible!
+    std::cout << "Impossible!" << std::endl;
+    return 0;
+}
