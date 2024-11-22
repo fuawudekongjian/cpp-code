@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 #include <string>
 using namespace std;
 
@@ -7,16 +8,19 @@ int main()
 	string a;
 	getline(cin, a);
 	int n = a.length();
-	int ans_charge = 0, ans_word = 0;
 	for (int i = 0; i < n; i++)
 	{
-		if (a[i] == '*')
+		if (isupper(a[i]))
 		{
-			ans_charge++;
-			if (a[i + 1] != '*')
-				ans_word++;
+			a[i] += 2;
+			if (a[i] > 'Z')
+				a[i] -= 26;
+		}
+		if (islower(a[i]))
+		{
+			a[i] = 'z' - (a[i] - 'a');
 		}
 	}
-	cout << ans_charge << " " << ans_word;
+	cout << a;
 	return 0;
 }
