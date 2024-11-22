@@ -1,15 +1,23 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main() {
-	int i, j, k, m;
-	cin >> m;
-	for (i = 1; i <= m; i++)
+
+int gcd(int a, int b)
+{
+	while (b != 0)
 	{
-		for (j = 1; i + j - 1 <= m; j++)
-			cout << i + j - 1 << " ";
-		for (k = 1; j <= m; j++, k++)
-			cout << k << " ";
-		cout << endl;
+		int temp = b;
+		b = a % b;
+		a = temp;
 	}
+	return a;
+}
+int main()
+{
+	int a, b, c;
+	char n, m;
+	cin >> a >> n >> b >> m >> c;
+	b = gcd(a, b);
+	c = gcd(b, c);
+	cout << c;
 	return 0;
 }
