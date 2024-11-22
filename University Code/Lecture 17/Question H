@@ -1,0 +1,17 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	int n, m;
+	cin >> n >> m;
+	int l = 1, r = n * m;
+	for (int i = 1; i <= n * m; i++)
+	{
+		if (i % 2 == 1)cout <<setw(5)<< l++;
+		else cout << setw(5)<<r--;
+		if (i % m == 0)cout << endl;
+	}
+	return 0;
+}
