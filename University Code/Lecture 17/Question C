@@ -1,30 +1,17 @@
 #include <iostream>
-#include <string>
-#include <cctype>
 using namespace std;
 
 int main()
 {
-	string a[3];
-	for (int i = 0; i < 3; i++)
-		getline(cin, a[i]);
-	int ans_upper = 0, ans_lower = 0, ans_digit = 0, ans_space = 0, ans = 0;
-	for (int i = 0; i < 3; i++)
+	int n;
+	cin >> n;
+	n = n % 26;
+	for (int i = 0; i < 26; i++)
 	{
-		int n = a[i].length();
-		for (int k = 0; k < n; k++)
-		{
-			if (isupper(a[i][k]))ans_upper++;
-			else if (islower(a[i][k]))ans_lower++;
-			else if (isdigit(a[i][k]))ans_digit++;
-			else if (isspace(a[i][k]))ans_space++;
-			else ans++;
-		}
+		char a = 'A';
+		a = a + i + n;
+		if (a > 'Z')a -= 26;
+		cout << a;
 	}
-	cout << ans_upper << endl;
-	cout << ans_lower << endl;
-	cout << ans_digit << endl;
-	cout << ans_space << endl;
-	cout << ans;
 	return 0;
 }
