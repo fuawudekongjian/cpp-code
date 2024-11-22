@@ -1,24 +1,18 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main() {
-	int i, n;
+
+int main()
+{
+	int n;
 	cin >> n;
-	for (i = 1; i <= n; i++)
-	{
-		int m=1;
-		for (int j = 2; j<i; j++)
-			if (i % j == 0) m += j;
-		if (m == i) continue;
-		int fm = 1;
-		for (int j = 2; j < m; j++)
-			if (m % j == 0) fm += j;
-		if (fm==i)
-		{
-			cout << i << " " << m << endl;
-			break;
-		}
-	}
-	if (i == n + 1)
-		cout << "NULL\n";
+	int a[100];
+	int ans = 1;
+	for (int i = 0; i < n; i++)
+		cin >> a[i];
+	int temp;
+	cin >> temp;
+	for (int i = 0; i < n; i++)
+		if (a[i] > temp)ans++;
+	cout << ans;
 	return 0;
 }
