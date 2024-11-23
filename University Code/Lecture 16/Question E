@@ -1,36 +1,24 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-
-int main()
-{
-	int a, b;
-	cin >> a >> b;
-	int c[100][100], rmax[100] = { 0 }, cmin[100];
-	for (int i = 0; i < 100; i++)
-		cmin[i] = 10000;
-	for (int i = 0; i < a; i++)
+int main() {
+	int i, n;
+	cin >> n;
+	for (i = 1; i <= n; i++)
 	{
-		for (int k = 0; k < b; k++)
+		int m=1;
+		for (int j = 2; j<i; j++)
+			if (i % j == 0) m += j;
+		if (m == i) continue;
+		int fm = 1;
+		for (int j = 2; j < m; j++)
+			if (m % j == 0) fm += j;
+		if (fm==i)
 		{
-			cin >> c[i][k];
-			if (c[i][k] > rmax[i])rmax[i] = c[i][k];
-			if (c[i][k] < cmin[k])cmin[k] = c[i][k];
+			cout << i << " " << m << endl;
+			break;
 		}
 	}
-	bool flag = false;
-	for (int i = 0; i < a; i++)
-	{
-		for (int k = 0; k < b; k++)
-		{
-			if (rmax[i] == cmin[k])
-			{
-				flag = true;
-				break;
-			}
-		}
-		if (flag) break;
-	}
-	if (flag)cout << "Yes";
-	else cout << "No";
+	if (i == n + 1)
+		cout << "NULL\n";
 	return 0;
 }
