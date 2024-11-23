@@ -1,18 +1,23 @@
 #include <iostream>
-#include <iomanip>
+#include <string>
+#include <cctype>
 using namespace std;
 
 int main()
 {
-	double ans = 0;
-	double n;
-	cin >> n;
-	for (int i = 1; i <= n; i++)
+	string a;
+	cin >> a;
+	int n = a.length();
+	int r = n - 1;
+	for (int i = 0; i < r; i++)
 	{
-		double temp = pow(-1, i - 1) / (i * 2 - 1);
-		ans += temp;
+		if (isalpha(a[i]))
+		{
+			while (!isalpha(a[r]))r--;
+			swap(a[i], a[r]);
+			r--;
+		}
 	}
-	ans *= 4;
-	cout << fixed << setprecision(10) << ans;
+	cout << a;
 	return 0;
 }
