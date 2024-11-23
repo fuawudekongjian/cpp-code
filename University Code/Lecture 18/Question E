@@ -3,24 +3,20 @@ using namespace std;
 
 int main()
 {
-	int a[1000], b[2000] = { 0 };
 	int n;
-	int i = 0;
-	while (cin >> n)
+	cin >> n;
+	int a[50];
+	for (int i = 0; i < n; i++)
+		cin >> a[i];
+	int x;
+	cin >> x;
+	int k = 0;
+	for (int i = 0; i < n; i++)
 	{
-		if (b[n + 1000] == 0)
-			a[i++] = n;
-		b[n + 1000] = 1;
+		if (a[i] != x)
+			a[k++] = a[i];
 	}
-	for (int k = 0; k < i; k++)
-	{
-		int temp = k;
-		for (int j = k + 1; j < i; j++)
-		{
-			if (a[j] < a[temp])temp = j;
-		}
-		if (temp != k)swap(a[k], a[temp]);
-		cout << a[k] << " ";
-	}
+	for (int i = 0; i < k; i++)
+		cout << a[i]<<" ";
 	return 0;
 }
