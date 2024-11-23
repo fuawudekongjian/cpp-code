@@ -1,34 +1,14 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main()
 {
-	string a;
-	getline(cin, a);
-	int ans = 0;
-	int len = a.length();
-	bool b[100000] = { false };
-	for (int i = 0; i < len; i++)
+	int n,ans=0;
+	for (int i = 0; i < 7; i++)
 	{
-		int temp = 0;
-		if (isdigit(a[i])&&b[i]==false)
-		{
-			temp = a[i] - '0';
-			b[i] = true;
-			for (int k = i + 1; k < len; k++)
-			{
-				if (isdigit(a[k]))
-				{
-					b[k] = true;
-					temp = temp * 10 + a[k] - '0';
-				}
-				else
-					break;
-			}
-		}
-		ans += temp;
+		cin >> n;
+		ans += n;
 	}
-	cout << ans;
+	cout << (1 + 8) * 8 / 2 - ans;
 	return 0;
 }
