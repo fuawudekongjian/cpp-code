@@ -3,33 +3,18 @@ using namespace std;
 
 int main()
 {
-	int n, m, k;
-	cin >> n >> m >> k;
-	int a[100][100] = { 0 };
-	int b[100][100] = { 0 };
-	int c[100][100] = { 0 };
-	for (int i = 0; i < n; i++)
-		for (int j = 0; j < m; j++)
-			cin >> a[i][j];
-	for (int i = 0; i < m; i++)
-		for (int j = 0; j < k; j++)
-			cin >> b[i][j];
-	int temp = 0;
+	int a[100][100];
+	int n;
+	cin >> n;
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < k; j++)
+		int max = 0;
+		for (int j = 0; j < n; j++)
 		{
-			temp = 0;
-			for (int l = 0; l < m; l++)
-				temp += a[i][l] * b[l][j];
-			c[i][j] = temp;
+			cin >> a[i][j];
+			if (a[i][j] > max)max = a[i][j];
 		}
-	}
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < k; j++)
-			cout << c[i][j] << " ";
-		cout << endl;
+		cout << max << endl;
 	}
 	return 0;
 }
