@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+bool prime(int n)
+{
+	if (n < 2)return false;
+	if (n < 4)return true;
+	if (n % 2 == 0)return false;
+	for (int i = 3; i * i <= n; i += 2)
+		if (n % i == 0)return false;
+	return true;
+}
+int main()
+{
+	int flag=1;
+	for(int i=1000;i<=9999;i++)
+	{
+		int n=i;
+		while(n>0)
+		{
+			if(prime(n)==false)break;
+			n/=10;
+		}
+		if(n==0)
+		{
+			if(flag)
+			{
+				cout<<i;
+				flag=0;
+			}
+			else 
+			cout<<","<<i;
+		}
+	}
+	return 0;
+}
