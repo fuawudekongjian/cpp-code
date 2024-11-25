@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+int IsDuichen(int num);
+int main()
+{
+	int n;
+	while(cin>>n)
+	{
+		if(n<0) break;
+		if(IsDuichen(n))
+			cout<<"Yes"<<endl;
+		else
+			cout<<"No"<<endl;
+	}
+}
+int IsDuichen(int num)
+{
+	int x=num,k=0;
+	while(x)
+	{
+		k=k*10+x%10;
+		x=x/10;
+	}
+	if(k==num)
+		return 1;
+	else
+		return 0;
+}
