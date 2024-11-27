@@ -1,69 +1,71 @@
 #include <iostream>
 #include <algorithm>
-#include <set>
-#include <vector>
-
 using namespace std;
 
-bool os(int a)
+bool os(int n)
 {
-    int ans = 0;
-    while (a)
-    {
-        ans += a % 10;
-        a /= 10;
-    }
-    if (ans % 2 == 0)
-        return true;
-    return false;
+	int ans = 0;
+	while (n)
+	{
+		ans += n % 10;
+		n /= 10;
+	}
+	if (ans % 2 == 0)return true;
+	return false;
 }
-
+bool pd(int arr[], int size, int target) 
+{
+	int left = 0;
+	int right = size - 1;
+	while (left <= right) {
+		int mid = left + (right - left) / 2;
+		if (arr[mid] == target) {
+			return true;
+		}
+		else if (arr[mid] > target) {
+			right = mid - 1;
+		}
+		else {
+			left = mid + 1;
+		}
+	}
+	return false;
+}
 int main()
 {
-    int n, m;
-    bool flag = false;
-    cin >> n >> m;
-
-    set<int> setA;
-    int x;
-
-    // 读取第一组数并处理
-    while (n--)
-    {
-        cin >> x;
-        if (os(x))
-            setA.insert(x);
-    }
-
-    vector<int> ans;
-
-    // 读取第二组数并查找相同元素
-    while (m--)
-    {
-        cin >> x;
-        if (os(x))
-        {
-            if (setA.find(x)!= setA.end())
-            {
-                ans.push_back(x);
-                flag = true;
-            }
-        }
-    }
-
-    // 后续输出部分
-    if (flag)
-    {
-        sort(ans.begin(), ans.end());
-        for (size_t i = 0; i < ans.size(); i++)
-        {
-            if (i > 0)
-                cout << "<";
-            cout << ans[i];
-        }
-    }
-    else
-        cout << "none";
-
-    return 0;
+	int n, m,x;
+	cin >> n >> m;
+	int a[100000],b[100000];
+	int i = 0,k=0;
+	bool flag =false;
+	while (n--)
+	{
+		cin >> x;
+		if (os(x))a[i++] = x;
+	}
+	sort(a, a + i);
+	while (m--)
+	{
+		cin >> x;
+		if (os(x))
+		{
+			if (pd(a, i, x))
+			{
+				flag = true;
+				b[k++] = x;
+			}
+		}
+	}
+	sort(b, b + k);
+	if (flag)
+	{
+		for (int j = 0; j < k; j++)
+		{
+			if (j)cout << "<";
+			cout << b[j];
+		}
+	}
+	else 
+		cout << "none";
+	return 0;
 }
