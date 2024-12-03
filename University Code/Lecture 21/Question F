@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+int a, m, n;
+int kn(int aa)
+{
+	if (aa < m)
+		return 0;
+	return aa / m * n + kn(aa / m * n + aa % m);
+}
+int main()
+{
+	cin >> a >> m >> n;
+	cout << a + kn(a);
+}
