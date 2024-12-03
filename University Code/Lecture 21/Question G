@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+void print(int n, char x, char y)
+{
+	cout << n << " " << x << " " << y << endl;
+}
+void move(int n, char start, char temp, char end)
+{
+	if (n == 1)
+		print(n, start, end);
+	else
+	{
+		move(n - 1, start, end, temp);
+		print(n, start, end);
+		move(n - 1, temp, start, end);
+	}
+}
+char findMiddle(char start, char end) {
+	char temp = start ^ end;  
+	temp ^= ('A' ^ 'B' ^ 'C'); 
+	return temp;
+}
+int main()
+{
+	int n;
+	char start, end, temp;
+	cin >> n >> start >> end;
+	temp = findMiddle(start, end);
+	move(n, start, temp, end);
+	return 0;
+}
