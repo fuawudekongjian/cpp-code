@@ -17,8 +17,8 @@ void move(int n, char start, char temp, char end)
 	}
 }
 char findMiddle(char start, char end) {
-	char temp = start ^ end;  
-	temp ^= ('A' ^ 'B' ^ 'C'); 
+	char temp = start ^ end;  // 利用异或操作
+	temp ^= ('A' ^ 'B' ^ 'C');  // 再与三个字符异或组合后的结果异或
 	return temp;
 }
 int main()
