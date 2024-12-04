@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int change(int n)
+{
+	if (n < 7)return n;
+	return n % 7 + 10 * change(n / 7);
+}
+int main()
+{
+	int n;
+	cin >> n;
+	cout << change(n);
+	return 0;
+}
