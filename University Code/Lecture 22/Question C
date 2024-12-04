@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+int a[21][21];
+
+int yh(int i, int j)
+{
+	if (i == 1)return 1;
+	if (j == 1)return 1;
+	if (i == j)return 1;
+	return yh(i - 1, j) + yh(i - 1, j - 1);
+}
+int main()
+{
+	int i, j;
+	cin >> i >> j;
+	cout << yh(i, j);
+	return 0;
+}
