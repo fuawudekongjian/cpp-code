@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+vector<int> findBeautifulBases(int n) {
+    vector<int> result;
+    for (int k = 2; k <= n; ++k) {
+        vector<int> digits;
+        int temp = n;
+        while (temp > 0) {
+            digits.push_back(temp % k);
+            temp /= k;
+        }
+        bool isBeautiful = true;
+        if (digits.size() < 2) {
+            continue;
+        }
+        sort(digits.begin(), digits.end());
+        for (size_t i = 0; i < digits.size() - 1; ++i) {
+            if (digits[i] == digits[i + 1]) {
+                isBeautiful = false;
+                break;
+            }
+        }
+        if (isBeautiful) {
+            result.push_back(k);
+        }
+    }
+    return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> beautiful_bases = findBeautifulBases(n);
+    if (beautiful_bases.empty()) {
+        cout << -1 << endl;
+    }
+    else {
+        for (int base : beautiful_bases) {
+            cout << base << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
