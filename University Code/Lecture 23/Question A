@@ -1,0 +1,41 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct num
+{
+	int x, he;
+};
+int ans(int a)
+{
+	int ans = 0;
+	while (a)
+	{
+		ans += a % 10;
+		a /= 10;
+	}
+	return ans;
+}
+bool flag(num a, num b)
+{
+	if (a.he != b.he)
+		return a.he > b.he;
+	return a.x > b.x;
+}
+int main()
+{
+	int n;
+	cin >> n;
+	num* a = new num[n];
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i].x;
+		a[i].he = ans(a[i].x);
+	}
+	sort(a, a + n, flag);
+	for (int i = 0; i < n; i++)
+		cout << a[i].x << " ";
+	delete[] a;
+	a = NULL;
+	return 0;
+}
