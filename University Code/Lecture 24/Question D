@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int n,i=1;
+	cin>>n;
+	int a[8];
+	while(n)
+	{
+		a[i++]=n%10;
+		n/=10;
+	}
+	string a1,a2,a3,a4,a5;
+	while(--i)
+	{
+		if(a[i]==1)
+		{
+			a1+="****.";
+			a2+="****.";
+			a3+="****.";
+			a4+="****.";
+			a5+="****.";
+		}
+		if(a[i]==2)
+		{
+			a1+=".....";
+			a2+="****.";
+			a3+=".....";
+			a4+=".****";
+			a5+=".....";
+		}
+		if(a[i]==3)
+		{
+			a1+=".....";
+			a2+="****.";
+			a3+=".....";
+			a4+="****.";
+			a5+=".....";
+		}		
+		if(a[i]==0)
+		{
+			a1+=".....";
+			a2+=".***.";
+			a3+=".***.";
+			a4+=".***.";
+			a5+=".....";
+		}
+	}
+	cout<<a1<<endl;
+	cout<<a2<<endl;
+	cout<<a3<<endl;
+	cout<<a4<<endl;
+	cout<<a5<<endl;
+	return 0;
+}
