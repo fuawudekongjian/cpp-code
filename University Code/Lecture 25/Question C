@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int i, n;
+	int* ps;
+	cin >> n;
+	ps = new int[n];//内存申请 
+	for (i = 0; i < n; i++)
+		ps[i] = i + i;
+	for (i = 0; i < n; i++)
+		cout << ps[i] << endl;
+	delete[] ps;//内存释放 
+	return 0;
+}
