@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	double x, s = 0;
+	double term = 1;
+	int n = 1;
+	cin >> x;
+	while (abs(term) > 1e-5)
+	{
+		s = s + term;
+		term = -term * x * x / ((n * 2 - 1)*(n * 2));
+		n++;
+	}
+	cout << "S=" << s << endl;
+	return 0;
+}
