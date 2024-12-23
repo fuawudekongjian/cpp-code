@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	cout << "D\n";
+	cout << "C\n";
+	cout << "A\n";
+	cout << "B";
+	return 0;
+}
+/*int    m, i, j, n;
+scanf("%d", &n);
+int* a = (int*)malloc(sizeof(int)*(1+n));
+for (i = 0; i < n; i++) scanf("%d", &a[i]);
+scanf("%d", &m);
+for (i = 0; i < n; i++)
+	if (m < a[i])
+		break;
+for (j = n - 1; j >= i; j--)
+	a[j + 1] = a[j];
+a[i] = m;
+for (i = 0; i < n + 1; i++)
+	printf("%d\t", a[i]);
+free(a);
+a = NULL;*/
