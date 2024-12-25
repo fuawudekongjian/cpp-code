@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin>>n;
+	int temp=n;
+	while(temp--)
+	{
+		for(int i=0;i<n;i++)cout<<'*';
+		for(int i=0;i<temp;i++)cout<<' ';
+		for(int i=0;i<(n-temp)*2-1;i++)cout<<'*';
+		cout<<endl;
+	}
+	return 0;
+}
