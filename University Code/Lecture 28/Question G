@@ -1,0 +1,29 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct sp
+{
+	int jg, ai;
+};
+bool cmp(sp a, sp b)
+{
+	if (a.ai != b.ai)return a.ai < b.ai;
+	else return a.jg < b.jg;
+}
+int main()
+{
+	int n, k;
+	cin >> n>>k;
+	sp* a = new sp[n];
+	for (int i = 0; i < n; i++)
+		cin >> a[i].jg >> a[i].ai;
+	sort(a, a + n, cmp);
+	int ans = 0;
+	for (int i = n - 1; i >= n - k; i--)
+		ans += a[i].jg;
+	cout << ans;
+	delete[]a;
+	a = NULL;
+	return 0;
+}
