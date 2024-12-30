@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin >> n;
+	int x=n,i=0;
+	while (x)
+	{
+		i++;
+		x /= 10;
+	}
+	if (i != 4)cout << "Input Error";
+	else if (n % 400 == 0)cout << "Yes";
+	else if (n % 4 == 0 && n % 100 != 0)cout << "Yes";
+	else cout << "No";
+	return 0;
+}
