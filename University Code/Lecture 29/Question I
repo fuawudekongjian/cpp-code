@@ -1,0 +1,43 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct cai
+{
+	char name;
+	int ai;
+};
+bool cmp(cai a, cai b)
+{
+	if(a.ai!=b.ai)
+		return a.ai > b.ai;
+	else
+		return a.name < b.name;
+}
+int main()
+{
+	int n, m;
+	cin >> n >> m;
+	cai a[27];
+	for (int i = 0; i < n; i++)
+	{
+		a[i].name = char('A' + i);
+		a[i].ai = 0;
+	}
+	char x;
+	while (m--)
+	{
+		int temp = n ;
+		while (temp--)
+		{
+			cin >> x;
+			a[x - 'A'].ai+=temp;
+		}
+	}
+	sort(a, a + n, cmp);
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i].name << ' ' << a[i].ai << endl;
+	}
+	return 0;
+}
